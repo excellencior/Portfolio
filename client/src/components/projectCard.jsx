@@ -46,11 +46,11 @@ const ProjectCard = (project) => {
 				xs={12}
 				className="description"
 				sx={{
-					opacity: 0,
-					transform: "translateY(50px)", // Start below
+					opacity: { xs: 1, sm: 0 }, 
+					transform: { xs: "translateY(0)", sm: "translateY(50px)" }, // No transform on xs
 					transition: "opacity 0.2s ease, transform 0.5s ease",
-					height: "calc(100% - 100px)", // Adjusted height
-					overflowY: "auto", // Scrollable if overflow
+					height: "calc(100% - 100px)",
+					overflowY: "auto",
 					mt: 2,
 				}}
 			>
