@@ -1,0 +1,29 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "test",
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/excellencior/Portfolio.git"
+  },
+  "author": "Apurbo Banik Turjo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/excellencior/Portfolio/issues"
+  },
+  "homepage": "https://github.com/excellencior/Portfolio#readme",
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "nodemailer": "^6.9.14",
+    "nodemon": "^3.1.4"
+  }
+}
