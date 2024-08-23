@@ -7,6 +7,7 @@ import { Grid } from "@mui/material";
 import { Typography } from "@mui/material";
 
 const bio = () => {
+	console.log("Hello from bio");
 	return (
 		<>
 			<Grid container spacing={0} className="animate-slide-up">

@@ -3,18 +3,17 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 
 import axios from "axios";
+import mytheme from "./theme.jsx";
 
-import mytheme from "./theme";
+import Projects from "./pages/projects.jsx";
+import Bio from "./pages/bio.jsx";
+import CV from "./pages/cv.jsx";
+import Academics from "./pages/academics.jsx";
+import Photography from "./pages/photography.jsx";
+import Mail from "./pages/mail.jsx";
 
-import Projects from "./pages/projects";
-import Bio from "./pages/bio";
-import CV from "./pages/cv";
-import Academics from "./pages/academics";
-import Photography from "./pages/photography";
-import Mail from "./pages/mail";
-
-import Sidepane from "./components/sidepane";
-import Toppane from "./components/toppane";
+import Sidepane from "./components/sidepane.jsx";
+import Toppane from "./components/toppane.jsx";
 
 const addTopPane = (title, Component) => {
 	return (props) => (
@@ -27,9 +26,9 @@ const addTopPane = (title, Component) => {
 	);
 };
 
-function App() {
+const App = () => {
 	// Set the base URL
-	axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+	axios.defaults.baseURL = import.meta.env.VITE_API_URL;
 
 	const pages = [
 		{
@@ -67,7 +66,6 @@ function App() {
 	return (
 		<ThemeProvider theme={mytheme}>
 			<div className="App content-container">
-				<Router>
 					<Sidepane className="sidepane" />
 					<Routes>
 						{pages.map((page) => (
@@ -78,7 +76,6 @@ function App() {
 							/>
 						))}
 					</Routes>
-				</Router>
 			</div>
 		</ThemeProvider>
 	);

@@ -54,5 +54,5 @@ const contact = [
 	},
 ];
 
-const Sidepan = { myworks, about_me, contact };
-export default Sidepan;
+const Sidepane = { myworks, about_me, contact };
+export default Sidepane;
