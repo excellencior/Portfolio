@@ -29,7 +29,7 @@ const addTopPane = (title, Component) => {
 
 function App() {
 	// Set the base URL
-	axios.defaults.baseURL = "http://localhost:4000";
+	axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 	const pages = [
 		{
