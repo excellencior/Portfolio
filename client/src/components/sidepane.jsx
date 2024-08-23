@@ -84,7 +84,7 @@ const Sidepane = () => {
 			</Typography>
 			<ButtonGroup variant="outlined" aria-label="contact button group" sx={{ "& > *": { m: 0.5 } }}>
 				{SidepaneOptions.contact.map((item, index) => (
-					<Button key={index} startIcon={item.icon} href={item.link}>
+					<Button component={Link} key={index} startIcon={item.icon} to={item.link}>
 						{item.title}
 					</Button>
 				))}
