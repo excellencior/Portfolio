@@ -8,13 +8,15 @@ import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import { Typography } from "@mui/material";
 import { Link, useLocation } from "react-router-dom"; // Import Link from react-router-dom
-import SidepaneOptions from "../consts/sidepane/options";
+import SidepaneOptions from "../consts/sidepane/options.jsx";
 
-const Sidepan = () => {
+const Sidepane = () => {
 	const location = useLocation();
+	console.log("Hello from sidepane");
+	console.log(SidepaneOptions);
 
 	return (
-		<div className>
+		<div>			
 			<Typography
 				variant="h6"
 				component="div"
@@ -37,7 +39,6 @@ const Sidepan = () => {
 			</Typography>
 
 			<Box role="presentation">
-				{/* My Works */}
 				<List>
 					<Typography
 						variant="h6"
@@ -62,7 +63,6 @@ const Sidepan = () => {
 					))}
 				</List>
 
-				{/* About Me */}
 				<List>
 					<Typography
 						variant="h6"
@@ -94,7 +94,6 @@ const Sidepan = () => {
 				>
 					Contact
 				</Typography>
-				{/* Contact Me */}
 				<ButtonGroup
 					variant="outlined"
 					aria-label="contact button group"
@@ -111,4 +110,4 @@ const Sidepan = () => {
 	);
 };
 
-export default Sidepan;
+export default Sidepane;
