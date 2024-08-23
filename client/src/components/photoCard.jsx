@@ -43,6 +43,7 @@ const PhotoCard = ({ image }) => {
 						alt={image.title}
 						style={{
 							width: "auto",
+							maxWidth: "90vw", // Adjust based on your preference
 							maxHeight: "80vh", // Adjust based on your preference
 							display: "block",
 							margin: "0 auto",
