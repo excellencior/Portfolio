@@ -1,0 +1,60 @@
+.App {
+	display: flex;
+}
+
+/* --------------------------------- */
+.sidepane {
+	width: "30%";
+	overflow-y: "auto";
+}
+
+/* --------------------------------- */
+
+.page-content {
+	width: 70%;
+	padding-left: 60px;
+	overflow-y: auto;
+	height: 97vh;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: lightgrey;
+	border-radius: 10px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: darkgrey;
+}
+
+.content-container {
+	flex-grow: 1;
+	padding-left: 8%;
+	padding-right: 8%;
+	display: flex;
+	flex-direction: row;
+}
+
+/* App.css or a separate CSS file */
+
+@keyframes slideUp {
+	from {
+		opacity: 0;
+		transform: translateY(50px); /* From 50px below */
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0); /* Original position */
+	}
+}
+
+.animate-slide-up {
+	animation: slideUp 0.5s ease-out;
+}
