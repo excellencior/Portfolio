@@ -104,7 +104,7 @@ const Sidepane = () => {
 					display: { xs: "block", md: "none" }, // Show only on mobile
 					position: "absolute",
 					top: 16,
-					left: 16,
+					left: 10,
 				}}
 			>
 				<MenuIcon />

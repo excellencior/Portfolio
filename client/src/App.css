@@ -44,7 +44,7 @@
 
 @media (max-width: 600px) { /* Change 600px to your xs breakpoint */
     .content-container {
-        /* padding-left: 0; */
+        padding-left: 0;
         padding-right: 0;
     }
 }
