@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import PhotoCard from "../components/photoCard";
 import { Grid } from "@mui/material";
 import axios from "axios";
+import Grow from "@mui/material/Grow";
 
 const Photography = () => {
 	const [images, setImages] = useState([]);
@@ -46,9 +47,11 @@ const Photography = () => {
 	return (
 		<Grid container spacing={5} className="animate-slide-up">
 			{images.map((image, index) => (
-				<Grid item xs={12} sm={6} md={5} key={index}>
-					<PhotoCard image={image} />
-				</Grid>
+				<Grow in={true} timeout={1000} key={index}>
+					<Grid item xs={12} sm={6} md={5} key={index}>
+						<PhotoCard image={image} />
+					</Grid>
+				</Grow>
 			))}
 		</Grid>
 	);
