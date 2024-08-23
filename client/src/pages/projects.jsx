@@ -9,7 +9,7 @@ const projects = () => {
 			<Grid container spacing={3} className="animate-slide-up">
 				{Projects.map((project, index) => (
 					<>
-						<Grid item xs={8} md={10}>
+						<Grid item xs={12} md={10}>
 							<Typography variant="h6" fontWeight="bold">
 								Project - {index + 1}
 							</Typography>

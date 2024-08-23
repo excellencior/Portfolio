@@ -42,6 +42,13 @@
 	flex-direction: row;
 }
 
+@media (max-width: 600px) { /* Change 600px to your xs breakpoint */
+    .content-container {
+        /* padding-left: 0; */
+        padding-right: 0;
+    }
+}
+
 /* App.css or a separate CSS file */
 
 @keyframes slideUp {
