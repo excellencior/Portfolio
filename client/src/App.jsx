@@ -14,14 +14,15 @@ import Mail from "./pages/mail.jsx";
 
 import Sidepane from "./components/sidepane.jsx";
 import Toppane from "./components/toppane.jsx";
+import { Container } from "@mui/material";
 
 const addTopPane = (title, Component) => {
 	return (props) => (
 		<>
-			<div className="page-content">
+			<Container className="page-content">
 				<Toppane title={title} />
 				<Component {...props} />
-			</div>
+			</Container>
 		</>
 	);
 };
