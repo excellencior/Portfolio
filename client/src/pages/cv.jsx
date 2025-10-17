@@ -15,6 +15,7 @@ const cv = () => {
         justifyContent: "flex-start",
         py: 4,
         backgroundColor: "#f8f8f8",
+		borderRadius: 3
       }}
     >
 
@@ -35,7 +36,8 @@ const cv = () => {
         variant="outlined"
         href={pdfUrl}
         download
-        sx={{ mt: 3 }}
+		size="small"
+        sx={{border: "2px solid black", color:"black", py:0, mt:3}}
       >
         Download CV
       </Button>
