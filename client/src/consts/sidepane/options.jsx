@@ -43,7 +43,7 @@ const contact = [
 		link: "/mail",
 	},
 	{
-		title: "Facebook",
+		title: "FB",
 		icon: <FacebookIcon sx={{ color: "blue"}} />,
 		link: "https://www.facebook.com/apurbobanik.turjo/",
 	},
