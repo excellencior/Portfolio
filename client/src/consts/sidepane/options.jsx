@@ -29,7 +29,7 @@ const about_me = [
 		to: "/",
 	},
 	{
-		title: "CV",
+		title: "Resume",
 		icon: "",
 		to: "/cv",
 	},
