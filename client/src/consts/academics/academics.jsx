@@ -1,7 +1,7 @@
 const academics = [
     {
         id: 6,
-        year: "2020 - Present",
+        year: "2020 - 2025",
         level: "Undergraduate",
         class: "Computer Science and Engineering",
         institution: "Bangladesh University of Engineering & Technology, Dhaka",
