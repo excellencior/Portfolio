@@ -44,7 +44,7 @@ const App = () => {
 		},
 		{
 			title: "CV",
-			contents: addTopPane("CV", CV),
+			contents: addTopPane("Resume", CV),
 			to: "/cv",
 		},
 		{
