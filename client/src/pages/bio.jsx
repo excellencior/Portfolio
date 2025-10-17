@@ -7,7 +7,6 @@ import { Grid } from "@mui/material";
 import { Typography } from "@mui/material";
 
 const bio = () => {
-	console.log("Hello from bio");
 	return (
 		<>
 			<Grid container spacing={0} className="animate-slide-up">
@@ -26,19 +25,18 @@ const bio = () => {
 						variant="h3"
 						component="div"
 						gutterBottom
-						sx={{ fontWeight: "regular", mt: 3, mb: 2 }}
+						sx={{ fontWeight: "regular", mb: 2 }}
 					>
 						Apurbo Banik Turjo
 					</Typography>
 
 					<Typography
-						variant="h6"
+						variant="body1"
 						component="div"
 						gutterBottom
 						sx={{ fontWeight: "regular", mt: 3, mb: 2 }}
-					>
-						{Mydescription.description}
-					</Typography>
+						dangerouslySetInnerHTML={{ __html: Mydescription.description }}
+					/>
 					
 				</Grid>
 			</Grid>

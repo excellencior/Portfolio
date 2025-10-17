@@ -1,86 +1,52 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Box, Grid, Typography } from "@mui/material";
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Chip from "@mui/material/Chip";
+import Stack from "@mui/material/Stack";
 
-const ProjectCard = (project) => {
-	const { title, description, imageurl, link, tags } = project;
-
+export default function ProjectCard({ title, description, imageurl, link, tags }) {
 	return (
-		<Grid
-			container
-			component={Link}
-			to={link}
-			sx={{
-				width: "100%",
-				height: "400px",
-				position: "relative",
+		<Card sx={{ maxWidth: 345, border: "2px solid black" }}>
+			<CardMedia
+				sx={{ height: 180 }}
+				image={imageurl}
+				title={title}
+			/>
 
-				backgroundSize: "cover",
-				backgroundPosition: "center",
-				overflow: "hidden",
-				borderRadius: "10px",
-				cursor: "pointer",
-				color: "white",
-				padding: 2,
-				textDecoration: "none",
-
-				backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imageurl})`, // Initial dark shade
-				"&:hover": {
-					backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${imageurl})`, // Darker shade on hover
-				},
-
-				"&:hover .description": {
-					opacity: 1,
-					transform: "translateY(0)", // Slide up on hover
-				},
-			}}
-		>
-			<Grid item xs={12}>
-				{/* Title Section */}
-				<Typography variant="h3">{title}</Typography>
-			</Grid>
-
-			{/* Description Section */}
-			<Grid
-				item
-				xs={12}
-				className="description"
-				sx={{
-					opacity: { xs: 1, sm: 0 }, 
-					transform: { xs: "translateY(0)", sm: "translateY(50px)" }, // No transform on xs
-					transition: "opacity 0.2s ease, transform 0.5s ease",
-					height: "calc(100% - 100px)",
-					overflowY: "auto",
-					mt: 2,
-				}}
-			>
-				<Typography variant="h5">{description}</Typography>
-			</Grid>
-
-			{/* Tags Section */}
-			<Grid item xs={12} alignItems="flex-end" marginBottom={1}>
-				{tags.map((tag) => (
-					<Typography
-						variant="caption"
-						key={tag}
-						fontWeight="bold"
-						sx={{
-							"&:not(:last-child)": {
-								marginRight: "10px",
-							},
-						}}
-					>
-						{tag}
-					</Typography>
-				))}
-				{/* Two far ends */}
-				<Box sx={{ flexGrow: 1 }} />
-				<Typography variant="caption" sx={{ paddingTop: 1 }}>
-					Click to open Github Repository
+			<CardContent>
+				
+				<Typography gutterBottom variant="h5" component="div">
+					{title}
 				</Typography>
-			</Grid>
-		</Grid>
-	);
-};
 
-export default ProjectCard;
+				<Typography variant="body2" sx={{ color: "text.secondary", mb: 1 }}>
+					{description}
+				</Typography>
+
+				<Stack direction="row" spacing={1} sx={{ flexWrap: "wrap" }}>
+					{tags?.map((tag) => (
+						<Chip key={tag} label={tag} size="small" variant="outlined" />
+					))}
+				</Stack>
+
+			</CardContent>
+
+			<CardActions sx={{ justifyContent: "flex-end" }}>
+				<Button 
+					size="small" 
+					href={link} 
+					target="_blank" 
+					sx={{border: "2px solid black", color:"black", py:0}}
+					className="link-hover"
+					>
+						View Repo
+				</Button>
+			</CardActions>
+
+		</Card>
+	);
+}
