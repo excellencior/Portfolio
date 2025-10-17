@@ -16,6 +16,7 @@ export default function ProjectCard({ title, description, imageurl, link, tags }
 				image={imageurl}
 				title={title}
 			/>
+
 			<CardContent>
 				
 				<Typography gutterBottom variant="h5" component="div">
@@ -28,15 +29,21 @@ export default function ProjectCard({ title, description, imageurl, link, tags }
 
 				<Stack direction="row" spacing={1} sx={{ flexWrap: "wrap" }}>
 					{tags?.map((tag) => (
-						<Chip key={tag} label={tag} size="small" variant="compact" />
+						<Chip key={tag} label={tag} size="small" variant="outlined" />
 					))}
 				</Stack>
 
 			</CardContent>
 
-			<CardActions>
-				<Button variant="contained" size="small" href={link} target="_blank">
-					View Repo
+			<CardActions sx={{ justifyContent: "flex-end" }}>
+				<Button 
+					size="small" 
+					href={link} 
+					target="_blank" 
+					sx={{border: "2px solid black", color:"black", py:0}}
+					className="link-hover"
+					>
+						View Repo
 				</Button>
 			</CardActions>
 
