@@ -3,7 +3,7 @@ import { createTheme } from "@mui/material/styles";
 // Create a custom theme
 const mytheme = createTheme({
 	typography: {
-		fontFamily: "KoHo, sans-serif",
+		fontFamily: "Consolas",
 		fontWeightLight: 200, // Equivalent to .koho-extralight
 		fontWeightRegular: 300, // Equivalent to .koho-regular
 		fontWeightMedium: 400, // Equivalent to .koho-light (You can assign it here)

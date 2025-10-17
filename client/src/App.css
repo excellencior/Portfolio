@@ -4,7 +4,7 @@
 
 /* --------------------------------- */
 .sidepane {
-	width: "30%";
+	width: 20%;
 	overflow-y: "auto";
 }
 
@@ -64,4 +64,9 @@
 
 .animate-slide-up {
 	animation: slideUp 0.5s ease-out;
+}
+
+.link-hover:hover {
+	background-color: rgb(52, 51, 51) !important;
+	color: white !important;
 }

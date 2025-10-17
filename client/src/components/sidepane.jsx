@@ -30,16 +30,27 @@ const Sidepane = () => {
 			sx={{ width: { xs: 300, md: 250 }, padding: { xs: '16px', md: '0px' } }}
 		>
 			{/* Drawer content goes here */}
-			<Typography variant="h6" component="div" gutterBottom sx={{ fontWeight: "light", fontSize: "1rem", mt: 2 }}>
+			<Typography variant="h6" component="div" gutterBottom sx={{ fontWeight: "light", fontSize: "0.8rem", mt: 2 }}>
 				"We know what we are,
 				<br /> but know not what we may be."
 				<br />
-				<b>William Shakespeare</b>
+				<b>- William Shakespeare</b>
 			</Typography>
 
-			<Typography variant="h4" component="div" gutterBottom sx={{ fontWeight: "regular", mt: 3, mb: 2 }}>
+			<Typography
+				variant="h5"
+				component="div"
+				gutterBottom
+				sx={{
+					fontWeight: 700,
+					mt: 2,
+					letterSpacing: "-0.5px",
+					lineHeight: 2,
+				}}
+			>
 				Apurbo Banik Turjo
 			</Typography>
+
 
 			{/* My Works List */}
 			<List>
@@ -79,14 +90,13 @@ const Sidepane = () => {
 				))}
 			</List>
 
-			<Typography variant="h6" component="div" mt={10} textTransform={"uppercase"}>
+			<Typography variant="h6" component="div" mt={6} textTransform={"uppercase"}>
 				Contact
 			</Typography>
-			<ButtonGroup variant="outlined" aria-label="contact button group" sx={{ "& > *": { m: 0.5 } }}>
+			<ButtonGroup
+				aria-label="Vertical button group">
 				{SidepaneOptions.contact.map((item, index) => (
-					<Button component={Link} key={index} startIcon={item.icon} to={item.link}>
-						{item.title}
-					</Button>
+					<Button component={Link} key={index} startIcon={item.icon} to={item.link} />
 				))}
 			</ButtonGroup>
 		</Box>
