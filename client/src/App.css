@@ -4,7 +4,7 @@
 
 /* --------------------------------- */
 .sidepane {
-	width: "30%";
+	width: 20%;
 	overflow-y: "auto";
 }
 
@@ -12,7 +12,7 @@
 
 .page-content {
 	width: 70%;
-	padding-left: 60px;
+	padding-left: 100px;
 	overflow-y: auto;
 	height: 97vh;
 }
