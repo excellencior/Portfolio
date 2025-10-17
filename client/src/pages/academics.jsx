@@ -38,7 +38,7 @@ const AcademicsComponent = () => {
 									{academic.class}
 								</Typography>
 								<Chip
-									avatar={<Avatar><ArrowOutwardIcon fontSize="small" color="primary" /></Avatar>}
+									avatar={<Avatar sx={{ bgcolor: "transparent" }}><ArrowOutwardIcon fontSize="small"/></Avatar>}
 									label={academic.location.place}
 									variant="outlined"
 									size="small"
@@ -46,6 +46,7 @@ const AcademicsComponent = () => {
 									href={academic.location.link}
 									target="_blank"
 									clickable
+									className="link-hover"
 								/>
 							</Grid>
 
