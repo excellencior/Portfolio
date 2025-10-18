@@ -34,6 +34,7 @@ router.get("/photos", async (req, res) => {
 		}));
 
 		res.json(signedImages);
+		
 	} catch (err) {
 		console.error(err);
 		res.status(500).json({ error: "Failed to fetch images" });
