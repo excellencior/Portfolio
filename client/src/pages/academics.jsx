@@ -1,36 +1,36 @@
-import { Grid, Typography, Box, Chip, Avatar } from "@mui/material";
+import { Grid2, Typography, Box, Chip, Avatar } from "@mui/material";
 import HistoryEduIcon from "@mui/icons-material/HistoryEdu";
-import Academics from "../consts/academics/academics";
+import AcademicsDetails from "../consts/academics/academics";
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
 
-const AcademicsComponent = () => {
+const Academics = () => {
 	return (
-		<Grid container spacing={4} className="animate-slide-up">
-			{Academics.map((academic) => (
-				<Grid container item key={academic.id} alignItems="flex-start">
+		<Grid2 container spacing={4} className="animate-slide-up">
+			{AcademicsDetails.map((academic) => (
+				<Grid2 container key={academic.id} alignItems="flex-start">
 					{/* Icon column */}
-					<Grid item xs={1} md={1}>
+					<Grid2 size={{ xs:1, md:1 }}>
 						<Box sx={{ display: "flex", justifyContent: "center" }}>
 							<HistoryEduIcon fontSize="large" />
 						</Box>
-					</Grid>
+					</Grid2>
 
 					{/* Academic info column */}
-					<Grid item xs={11} md={11}>
+					<Grid2 size={{ xs:11, md:11 }}>
 
-						<Grid container>
+						<Grid2 container>
 
-							<Grid item xs={12} md={3}>
+							<Grid2 size={{ xs:12, md:3 }}>
 								<Typography variant="h6" fontWeight={400}>
 									{academic.year}
 								</Typography>
 								<Typography variant="body1" fontWeight={400}>
 									{academic.level}
 								</Typography>
-							</Grid>
+							</Grid2>
 
-							<Grid item xs={12} md={9}>
+							<Grid2 size={{ xs:12, md:9 }}>
 								<Typography variant="h6" fontWeight={400}>
 									{academic.institution}
 								</Typography>
@@ -48,15 +48,15 @@ const AcademicsComponent = () => {
 									clickable
 									className="link-hover"
 								/>
-							</Grid>
+							</Grid2>
 
-						</Grid>
+						</Grid2>
 
-					</Grid>
-				</Grid>
+					</Grid2>
+				</Grid2>
 			))}
-		</Grid>
+		</Grid2>
 	);
 };
 
-export default AcademicsComponent;
+export default Academics;

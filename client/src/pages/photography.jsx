@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import PhotoCard from "../components/photoCard";
-import { Grid } from "@mui/material";
+import { Grid2 } from "@mui/material";
 import Grow from "@mui/material/Grow";
+import axios from "axios";
 
 const Photography = () => {
 	const [images, setImages] = useState([]);
@@ -9,9 +10,9 @@ const Photography = () => {
 	useEffect(() => {
 		const fetchImages = async () => {
 			try {
-				const res = await fetch("http://localhost:4000/photography/photos");
-				const data = await res.json();
-				setImages(data);
+				const res = await axios.get("/photography/photos");
+				setImages(res.data);
+
 			} catch (error) {
 				console.error("Error fetching images:", error);
 			}
@@ -27,15 +28,15 @@ const Photography = () => {
 	}, []);
 
 	return (
-		<Grid container spacing={5}>
+		<Grid2 container spacing={5}>
 			{images.map((image, index) => (
 				<Grow in={true} timeout={1000} key={index}>
-					<Grid item xs={12} sm={6} md={5}>
+					<Grid2 size={{ xs:12, sm:6, md:5}}>
 						<PhotoCard image={image} />
-					</Grid>
+					</Grid2>
 				</Grow>
 			))}
-		</Grid>
+		</Grid2>
 	);
 };
 
