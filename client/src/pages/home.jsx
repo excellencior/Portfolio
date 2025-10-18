@@ -1,14 +1,14 @@
 import React from "react";
-import { Box, Container, Typography, Button, Grid } from "@mui/material";
+import { Box, Container, Typography, Button, Grid2 } from "@mui/material";
 import { Link } from "react-router-dom";
 import ProfilePhoto from "../assets/images/profile.jpeg";
 
 const Home = () => {
 	return (
 		<Container maxWidth="xl" sx={{ mt: 8 }}>
-			<Grid container spacing={4} alignItems="center">
+			<Grid2 container spacing={4} alignItems="center">
 				{/* Left side: Text content */}
-				<Grid item xs={12} md={6} textAlign="left">
+				<Grid2 size={{ xs:12, md:6 }} textAlign="left">
 					<Typography
 						variant="h4"
 						component="h5"
@@ -30,10 +30,10 @@ const Home = () => {
 					>
 						View CV
 					</Button>
-				</Grid>
+				</Grid2>
 
 				{/* Right side: Image */}
-				<Grid item xs={12} md={6} display="flex" justifyContent="center">
+				<Grid2 size={{ xs:12, md:6 }} display="flex" justifyContent="center">
 					<Box
 						component="img"
 						src={ProfilePhoto} // Replace with the actual path to your image
@@ -47,8 +47,8 @@ const Home = () => {
 							padding: "20px",
 						}}
 					/>
-				</Grid>
-			</Grid>
+				</Grid2>
+			</Grid2>
 		</Container>
 	);
 };
