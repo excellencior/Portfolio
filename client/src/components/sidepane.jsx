@@ -54,7 +54,7 @@ const Sidepane = () => {
 
 			{/* My Works List */}
 			<List>
-				<Typography variant="h6" component="div" mt={3} textTransform={"uppercase"}>
+				<Typography variant="h6" component="div" mt={3} textTransform={"uppercase"} sx={{ borderBottom: '2px solid black' }}>
 					My Works
 				</Typography>
 				{SidepaneOptions.myworks.map((text) => (
@@ -73,7 +73,7 @@ const Sidepane = () => {
 
 			{/* About Me List */}
 			<List>
-				<Typography variant="h6" component="div" mt={6} textTransform={"uppercase"}>
+				<Typography variant="h6" component="div" mt={6} textTransform={"uppercase"} sx={{ borderBottom: '2px solid black' }}>
 					About Me
 				</Typography>
 				{SidepaneOptions.about_me.map((text) => (

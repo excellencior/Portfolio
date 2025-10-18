@@ -1,4 +1,3 @@
-import * as React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -7,18 +6,14 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
+import Link from "@mui/material/Link";
 
-export default function ProjectCard({ title, description, imageurl, link, tags }) {
+export default function ProjectCard({ title, description, imageurl, repoLink, tags, date, deployedAt }) {
 	return (
 		<Card sx={{ maxWidth: 345, border: "2px solid black" }}>
-			<CardMedia
-				sx={{ height: 180 }}
-				image={imageurl}
-				title={title}
-			/>
+			<CardMedia sx={{ height: 180 }} image={imageurl} title={title} />
 
 			<CardContent>
-				
 				<Typography gutterBottom variant="h5" component="div">
 					{title}
 				</Typography>
@@ -27,26 +22,37 @@ export default function ProjectCard({ title, description, imageurl, link, tags }
 					{description}
 				</Typography>
 
+				<Typography variant="caption" sx={{ display: "block", mb: 1 }}>
+					📅 {date}
+				</Typography>
+				
+				{deployedAt && (
+					<Typography variant="body2" sx={{ mb: 1 }}>
+						🌐 <Link href={`https://${deployedAt}`} target="_blank" underline="hover">
+							Try out
+						</Link>
+					</Typography>
+				)}
+
+
 				<Stack direction="row" spacing={1} sx={{ flexWrap: "wrap" }}>
 					{tags?.map((tag) => (
 						<Chip key={tag} label={tag} size="small" variant="outlined" />
 					))}
 				</Stack>
-
 			</CardContent>
 
 			<CardActions sx={{ justifyContent: "flex-end" }}>
-				<Button 
-					size="small" 
-					href={link} 
-					target="_blank" 
-					sx={{border: "2px solid black", color:"black", py:0}}
+				<Button
+					size="small"
+					href={repoLink}
+					target="_blank"
+					sx={{ border: "2px solid black", color: "black", py: 0 }}
 					className="link-hover"
-					>
-						View Repo
+				>
+					View Repo
 				</Button>
 			</CardActions>
-
 		</Card>
 	);
 }
