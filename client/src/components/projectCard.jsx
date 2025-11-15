@@ -10,7 +10,7 @@ import Link from "@mui/material/Link";
 
 export default function ProjectCard({ title, description, imageurl, repoLink, tags, date, deployedAt }) {
 	return (
-		<Card sx={{ maxWidth: 345, border: "2px solid black" }}>
+		<Card sx={{ marginLeft: "10%" ,maxWidth: "70%", border: "2px solid black" }}>
 			<CardMedia sx={{ height: 180 }} image={imageurl} title={title} />
 
 			<CardContent>
@@ -25,7 +25,7 @@ export default function ProjectCard({ title, description, imageurl, repoLink, ta
 				<Typography variant="caption" sx={{ display: "block", mb: 1 }}>
 					📅 {date}
 				</Typography>
-				
+
 				{deployedAt && (
 					<Typography variant="body2" sx={{ mb: 1 }}>
 						🌐 <Link href={`https://${deployedAt}`} target="_blank" underline="hover">
@@ -43,15 +43,21 @@ export default function ProjectCard({ title, description, imageurl, repoLink, ta
 			</CardContent>
 
 			<CardActions sx={{ justifyContent: "flex-end" }}>
-				<Button
-					size="small"
-					href={repoLink}
-					target="_blank"
-					sx={{ border: "2px solid black", color: "black", py: 0 }}
-					className="link-hover"
-				>
-					View Repo
-				</Button>
+				{repoLink ? (
+					<Button
+						size="small"
+						href={repoLink}
+						target="_blank"
+						sx={{ border: "2px solid black", color: "black", py: 0 }}
+						className="link-hover"
+					>
+						View Repo
+					</Button>
+				) : (
+					<Typography sx={{ color: "gray", fontSize: 14 }}>
+						Repo: Not publicly accessible
+					</Typography>
+				)}
 			</CardActions>
 		</Card>
 	);
