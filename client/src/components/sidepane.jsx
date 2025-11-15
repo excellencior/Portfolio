@@ -44,7 +44,7 @@ const Sidepane = () => {
 				sx={{
 					fontWeight: 700,
 					mt: 2,
-					letterSpacing: "-0.5px",
+					letterSpacing: "-1px",
 					lineHeight: 2,
 				}}
 			>
