@@ -1,8 +1,6 @@
-import ProfilePhoto from '../../assets/images/profile.jpg';
-
 const mydescription = {
 	name: "Apurbo Banik Turjo",
-	profilephoto: ProfilePhoto,
+	profilephoto: "/images/profile.jpg",
 	description: `
 		<p style="text-align: justify; margin: 0;">
 			Currently working at <span style="font-weight:700">Therap (BD) Ltd.</span> as a 

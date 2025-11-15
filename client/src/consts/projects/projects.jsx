@@ -1,16 +1,45 @@
 const projects = [
     {
         id: 1,
-        title: 'Weather App',
-        date: 'August, 2020',
-        description: 'A responsive weather application that provides real-time weather updates and forecasts for any location worldwide. Built with JS & HTML and integrated with the OpenWeatherMap API.',
-        imageurl: 'https://github.com/excellencior/Weather-Web-app/raw/master/Webpage%20DemoSS.png',
-        repoLink: 'https://github.com/excellencior/Weather-Web-app',
-        deployedAt: 'excellencior.github.io/Weather-Web-app/',
-        tags: ['HTML', 'JS', 'CSS', 'API']
+        title: 'Detection of Dengue Breeding Sites in Large‑scale Landscapes Plagued by Unplanned Urban Development from Aerial Imagery and Remote Sensing with Deep Learning',
+        date: 'April, 2025',
+        description: 'This project implements a novel two-stage deep learning pipeline for early detection of dengue breeding sites in dense urban regions where manual inspections are costly and unscalable. The system first segments individual buildings from aerial imagery, then detects potential dengue breeding objects, and finally spatially combines both outputs to enable geo-targeted inspections. Tested on orthophotos from two dengue-prone districts in Dhaka, the method achieved an 83.6% balanced accuracy while reducing manual inspection effort by 35%, outperforming a one-stage baseline approach.',
+        imageurl: '/images/orthophoto_r83_preview.png',
+        repoLink: '',
+        deployedAt: '',
+        tags: ['CV', 'YOLOv9-v11', 'SegGPT', 'OBB Merging Algorithm', 'Orthophoto']
     },
     {
         id: 2,
+        title: 'Predictive Diagnosis System',
+        date: "January, 2025",
+        description: 'The system builds personalized predictive diagnostic profiles based on medical history, current symptoms, age, sex, etc. Using the pretrained BioBERT model, fine-tuned on a preprocessed dataset (ddxplus), the system generates a list of possible diagnoses with their respective probabilities.',
+        imageurl: '/images/machine-learning.jpg',
+        repoLink: 'https://github.com/excellencior/ML-Project---bioBERT',
+        tags: ['Machine Learning', 'BioBERT', 'Fine Turning', 'Medical']
+    },
+    {
+        id: 3,
+        title: 'Personal Portfolio',
+        date: "July, 2024",
+        description: 'A personal portfolio website showcasing my projects, skills, and experience. It includes an interactive resume, project gallery, and contact form for potential clients or employers.',
+        imageurl: '/images/portfolio.jpg',
+        repoLink: 'https://github.com/excellencior/Portfolio',
+        deployedAt: 'https://abturjo.onrender.com',
+        tags: ['React', 'Express', 'Portfolio']
+    },
+    {
+        id: 4,
+        title: 'Football Management System [L1/T2] [BUET]',
+        date: "December, 2022",
+        description: 'The Football Management System lets you manage teams and players with real-time updates. Built with JavaFX and Java multithreading, it handles multiple user requests, supports inter-thread resource sharing, and follows Java coding conventions. Users can create teams, buy and sell players, and save data in a remote database.',
+        imageurl: '/images/football-management-system.jpg',
+        repoLink: 'https://github.com/excellencior/Football-Player-Management-System',
+        deployedAt: '',
+        tags: ['Java', 'JavaFX', 'Multithreading', 'Networking', 'Producer-Consumer-Problem']
+    },
+    {
+        id: 5,
         title: 'Simple Calculator',
         date: "October, 2021",
         description: 'A very simple calculator web-app made only with html, js and css. It was very fun when I started learning and wanted to do something with my newly learned knowledge.',
@@ -20,8 +49,8 @@ const projects = [
         tags: ['HTML', 'JS', 'CSS']
     },
     {
-        id: 3,
-        title: 'L1T1 Project [BUET]',
+        id: 6,
+        title: 'Catch the Egg [L1/T1] [BUET]',
         date: "November, 2021",
         description: 'Catch the Egg – A 2D game implemented in C++ using OpenGL, featuring real-time physics, airflow effects, sound integration, and adjustable difficulty levels. Learned event handling, texture rendering, and frame-based animation using OpenGL.',
         imageurl: 'https://github.com/excellencior/Catch-the-Egg/blob/master/Catch_the_egg_Project_SS/combined.png?raw=true',
@@ -30,21 +59,15 @@ const projects = [
         tags: ['CPP', 'bmp', 'OpenGL']
     },
     {
-        id: 4,
-        title: 'Personal Portfolio',
-        description: 'A personal portfolio website showcasing my projects, skills, and experience. It includes an interactive resume, project gallery, and contact form for potential clients or employers.',
-        imageurl: 'https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA0L2pvYjY4Ni0yNTMteC5qcGc.jpg',
-        repoLink: 'https://github.com',
-        tags: ['React', 'Portfolio']
-    },
-    {
-        id: 5,
-        title: 'Fitness Tracker',
-        description: 'A mobile-friendly fitness tracker that allows users to log workouts, monitor progress, and set fitness goals. It includes features such as calorie counting and exercise tutorials.',
-        imageurl: 'https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA0L2pvYjY4Ni0yNTMteC5qcGc.jpg',
-        repoLink: 'https://github.com',
-        tags: ['React', 'Health & Fitness']
-    },
+        id: 7,
+        title: 'Weather App',
+        date: 'August, 2020',
+        description: 'A responsive weather application that provides real-time weather updates and forecasts for any location worldwide. Built with JS & HTML and integrated with the OpenWeatherMap API.',
+        imageurl: 'https://github.com/excellencior/Weather-Web-app/raw/master/Webpage%20DemoSS.png',
+        repoLink: 'https://github.com/excellencior/Weather-Web-app',
+        deployedAt: 'excellencior.github.io/Weather-Web-app/',
+        tags: ['HTML', 'JS', 'CSS', 'API']
+    }
 ];
 
 export default projects;
