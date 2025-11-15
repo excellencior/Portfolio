@@ -5,12 +5,13 @@ import { ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 import mytheme from "./theme.jsx";
 
-import Projects from "./pages/projects.jsx";
-import Bio from "./pages/bio.jsx";
-import CV from "./pages/cv.jsx";
-import Academics from "./pages/academics.jsx";
-import Photography from "./pages/photography.jsx";
-import Mail from "./pages/mail.jsx";
+import Projects from "./pages/projects_page.jsx";
+import Bio from "./pages/bio_page.jsx";
+import LifeUpdate from "./pages/life_updates_page.jsx";
+import CV from "./pages/cv_page.jsx";
+import Academics from "./pages/academics_page.jsx";
+import Photography from "./pages/photography_page.jsx";
+import Mail from "./pages/mail_page.jsx";
 
 import Sidepane from "./components/sidepane.jsx";
 import Toppane from "./components/toppane.jsx";
@@ -33,32 +34,30 @@ const App = () => {
 
 	const pages = [
 		{
-			title: "Projects",
 			contents: addTopPane("Projects", Projects),
 			to: "/projects",
 		},
 		{
-			title: "Bio",
 			contents: addTopPane("Bio", Bio),
 			to: "/",
 		},
 		{
-			title: "CV",
+			contents: addTopPane("Life Update", LifeUpdate),
+			to: "/updates",
+		},
+		{
 			contents: addTopPane("Resume", CV),
 			to: "/cv",
 		},
 		{
-			title: "Academics",
 			contents: addTopPane("Academics", Academics),
 			to: "/academics",
 		},
 		{
-			title: "Photography",
 			contents: addTopPane("Photography", Photography),
 			to: "/photography",
 		},
 		{
-			title: "Mail",
 			contents: addTopPane("Mail", Mail),
 			to: "/mail",
 		},
@@ -71,7 +70,6 @@ const App = () => {
 					<Routes>
 						{pages.map((page) => (
 							<Route
-								key={page.title}
 								path={page.to}
 								element={<page.contents />}
 							/>

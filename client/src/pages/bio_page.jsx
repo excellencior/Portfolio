@@ -9,8 +9,8 @@ import { Typography } from "@mui/material";
 const bio = () => {
 	return (
 		<>
-			<Grid2 container spacing={0} className="animate-slide-up">
-				<Grid2 size={{ xs: 12, md: 5 }}>
+			<Grid2 container spacing={5} className="animate-slide-up">
+				<Grid2 size={{ xs: 12, lg: 5 }}>
 					<Card sx={{ maxWidth: 345 }}>
 						<CardMedia
 							sx={{ height: "440px" }}
@@ -20,7 +20,7 @@ const bio = () => {
 					</Card>
 				</Grid2>
 
-				<Grid2 size={{ xs:12, md:7 }} disa>
+				<Grid2 size={{ xs:12, lg: 7 }}>
 					<Typography
 						variant="h3"
 						component="div"

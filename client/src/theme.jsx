@@ -15,7 +15,7 @@ const mytheme = createTheme({
 		MuiButton: {
 			styleOverrides: {
 				root: {
-					textTransform: "none", // Disable uppercase transformation globally for buttons
+					textTransform: "none", // Disable uppercase tra	nsformation globally for buttons
 				},
 			},
 		},

@@ -37,7 +37,7 @@ const ProjectsSection = () => {
 			{Projects.map((project, index) => (
 				<div key={project.id}>
 					<Typography variant="h6" fontWeight="bold" mb={1}>
-						<AccountTreeIcon /> Project [{toRoman(index + 1)}]
+						<AccountTreeIcon /> Project [{toRoman(project.id)}]
 					</Typography>
 					<ProjectCard {...project} />
 				</div>
