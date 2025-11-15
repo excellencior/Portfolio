@@ -1,6 +1,6 @@
 const projects = [
     {
-        id: 1,
+        id: 7,
         title: 'Detection of Dengue Breeding Sites in Large‑scale Landscapes Plagued by Unplanned Urban Development from Aerial Imagery and Remote Sensing with Deep Learning',
         date: 'April, 2025',
         description: 'This project implements a novel two-stage deep learning pipeline for early detection of dengue breeding sites in dense urban regions where manual inspections are costly and unscalable. The system first segments individual buildings from aerial imagery, then detects potential dengue breeding objects, and finally spatially combines both outputs to enable geo-targeted inspections. Tested on orthophotos from two dengue-prone districts in Dhaka, the method achieved an 83.6% balanced accuracy while reducing manual inspection effort by 35%, outperforming a one-stage baseline approach.',
@@ -10,7 +10,7 @@ const projects = [
         tags: ['CV', 'YOLOv9-v11', 'SegGPT', 'OBB Merging Algorithm', 'Orthophoto']
     },
     {
-        id: 2,
+        id: 6,
         title: 'Predictive Diagnosis System',
         date: "January, 2025",
         description: 'The system builds personalized predictive diagnostic profiles based on medical history, current symptoms, age, sex, etc. Using the pretrained BioBERT model, fine-tuned on a preprocessed dataset (ddxplus), the system generates a list of possible diagnoses with their respective probabilities.',
@@ -19,7 +19,7 @@ const projects = [
         tags: ['Machine Learning', 'BioBERT', 'Fine Turning', 'Medical']
     },
     {
-        id: 3,
+        id: 5,
         title: 'Personal Portfolio',
         date: "July, 2024",
         description: 'A personal portfolio website showcasing my projects, skills, and experience. It includes an interactive resume, project gallery, and contact form for potential clients or employers.',
@@ -39,7 +39,7 @@ const projects = [
         tags: ['Java', 'JavaFX', 'Multithreading', 'Networking', 'Producer-Consumer-Problem']
     },
     {
-        id: 5,
+        id: 3,
         title: 'Simple Calculator',
         date: "October, 2021",
         description: 'A very simple calculator web-app made only with html, js and css. It was very fun when I started learning and wanted to do something with my newly learned knowledge.',
@@ -49,7 +49,7 @@ const projects = [
         tags: ['HTML', 'JS', 'CSS']
     },
     {
-        id: 6,
+        id: 2,
         title: 'Catch the Egg [L1/T1] [BUET]',
         date: "November, 2021",
         description: 'Catch the Egg – A 2D game implemented in C++ using OpenGL, featuring real-time physics, airflow effects, sound integration, and adjustable difficulty levels. Learned event handling, texture rendering, and frame-based animation using OpenGL.',
@@ -59,7 +59,7 @@ const projects = [
         tags: ['CPP', 'bmp', 'OpenGL']
     },
     {
-        id: 7,
+        id: 1,
         title: 'Weather App',
         date: 'August, 2020',
         description: 'A responsive weather application that provides real-time weather updates and forecasts for any location worldwide. Built with JS & HTML and integrated with the OpenWeatherMap API.',
