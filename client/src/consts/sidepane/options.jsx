@@ -33,6 +33,11 @@ const about_me = [
 		icon: "",
 		to: "/cv",
 	},
+	{
+		title: "Updates",
+		icon: "",
+		to: "/updates",
+	},
 ];
 
 // Contact : Facebook, Gmail, Github (with icons and links)
