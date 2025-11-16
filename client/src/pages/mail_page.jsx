@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Grid2 } from "@mui/material";
+import { useState } from "react";
+import { Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -105,8 +105,8 @@ const Mail = () => {
 
 	return (
 		<>
-			<Grid2 container marginTop={2} spacing={1} className="animate-slide-up">
-				<Grid2 size={{ xs:10, md:10 }}>
+			<Grid container marginTop={2} spacing={1} className="animate-slide-up">
+				<Grid size={{ xs:10, md:10 }}>
 					<ReachOutArea
 						width="40ch"
 						label="Your Name"
@@ -114,8 +114,8 @@ const Mail = () => {
 						value={formData.name}
 						onChange={handleChange}
 					/>
-				</Grid2>
-				<Grid2 size={{ xs:10, md:10 }}>
+				</Grid>
+				<Grid size={{ xs:10, md:10 }}>
 					<ReachOutArea
 						width="40ch"
 						label="Your Email"
@@ -127,8 +127,8 @@ const Mail = () => {
 							emailError ? "Invalid email address. Must contain '@'." : ""
 						}
 					/>
-				</Grid2>
-				<Grid2 size={{ xs:10, md:10 }}>
+				</Grid>
+				<Grid size={{ xs:10, md:10 }}>
 					<ReachOutArea
 						width="80ch"
 						label="Your Message"
@@ -138,8 +138,8 @@ const Mail = () => {
 						onChange={handleChange}
 						helperText={"Type your message here. MULTILINE supported."}
 					/>
-				</Grid2>
-				<Grid2 size={{ xs:10, md:10 }} margin={2} style={{ textAlign: "right" }}>
+				</Grid>
+				<Grid size={{ xs:10, md:10 }} margin={2} style={{ textAlign: "right" }}>
 					<Button
 						size="small"
 						onClick={handleSubmit}
@@ -150,8 +150,8 @@ const Mail = () => {
 						>
 						Send
 					</Button>
-				</Grid2>
-			</Grid2>
+				</Grid>
+			</Grid>
 
 			{/* Snackbar component */}
 			{openSnackbar && (
