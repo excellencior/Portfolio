@@ -1,4 +1,3 @@
-import React from "react";
 import Projects from "../consts/projects/projects";
 import ProjectCard from "../components/projectCard";
 import { Stack, Typography } from "@mui/material";

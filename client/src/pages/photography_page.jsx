@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import PhotoCard from "../components/photoCard";
-import { Grid2 } from "@mui/material";
+import { Grid } from "@mui/material";
 import Grow from "@mui/material/Grow";
 import axios from "axios";
 
@@ -28,15 +28,15 @@ const Photography = () => {
 	}, []);
 
 	return (
-		<Grid2 container spacing={5}>
+		<Grid container spacing={5}>
 			{images.map((image, index) => (
 				<Grow in={true} timeout={1000} key={index}>
-					<Grid2 size={{ xs:12, sm:6, md:5}}>
+					<Grid size={{ xs:12, sm:6, md:5}}>
 						<PhotoCard image={image} />
-					</Grid2>
+					</Grid>
 				</Grow>
 			))}
-		</Grid2>
+		</Grid>
 	);
 };
 

@@ -1,4 +1,3 @@
-import React from "react";
 import LifeUpdates from "../consts/bio/life_updates";
 
 import Timeline from '@mui/lab/Timeline';
