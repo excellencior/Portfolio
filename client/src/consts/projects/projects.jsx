@@ -1,5 +1,25 @@
 const projects = [
     {
+        id: 9,
+        title: 'CostPilot',
+        date: 'November, 2025',
+        description: 'A local-first cross-platform finance app (Web + Android) offering typically premium features at zero cost: reusable budget plans with threshold alerts, custom category taxonomy, branded PDF/CSV data exports, calendar heatmap, and dual-mode spending analytics; deployed from a single React/TypeScript codebase to both Vercel and a signed Android APK via Capacitor. Features an offline-capable rolling backup system with scheduled auto-backups, missed-window catch-up on app resume, same-day overwrite conflict detection, content-hash deduplication to skip redundant writes, and a merge-on-restore flow that intelligently reconciles backup data with live device state without any external sync dependency.',
+        imageurl: '/images/costpilot.gif',
+        repoLink: 'https://github.com/excellencior/cost-pilot',
+        deployedAt: 'cost-pilot-xi.vercel.app',
+        tags: ['React 19', 'TypeScript', 'Vite', 'Capacitor 8', 'jsPDF']
+    },
+    {
+        id: 8,
+        title: 'Screen Arxiv',
+        date: 'February, 2026',
+        description: 'A dual-platform media consumption awareness app (React/Vite web + React Native Android) designed to surface how much screen time is spent and on what; features status-based tracking (Watched, Watching, Waitlist), granular per-episode TV progress with bulk actions, upcoming episode/movie release schedules, and a library analytics engine with decade distribution and genre breakdowns to quantify consumption patterns. Integrated TMDB API with real-time debounced search and auto-fetched metadata (cast carousels, trailers, release dates); designed a layered modal navigation system for hierarchical content browsing; implemented gesture-based swipeable tabs, JSON backup/restore for full library portability, and adaptive theming across both platforms from shared business logic.',
+        imageurl: '/images/screenarxiv.gif',
+        repoLink: 'https://github.com/excellencior/screen-arxiv',
+        deployedAt: 'excellencior.github.io/screen-arxiv/#/',
+        tags: ['React 19', 'React Native 0.84', 'TypeScript', 'TMDB API']
+    },
+    {
         id: 7,
         title: 'Detection of Dengue Breeding Sites in Large‑scale Landscapes Plagued by Unplanned Urban Development from Aerial Imagery and Remote Sensing with Deep Learning',
         date: 'April, 2025',

@@ -1,5 +1,17 @@
 const life_updates = [
 	{
+		id: 11,
+		date: "Feb 2026",
+		title: "Built Screen Arxiv",
+		description: "Created a dual-platform media tracking app (React web + React Native Android) with TMDB integration, library analytics, and gesture-based navigation"
+	},
+	{
+		id: 10,
+		date: "Nov 2025",
+		title: "Built CostPilot",
+		description: "Developed a local-first cross-platform personal finance app (Web + Android) with budget planning, spending analytics, and an offline-capable rolling backup system"
+	},
+	{
 		id: 9,
 		date: "Nov 2025",
 		specificDate: "Present",
