@@ -5,6 +5,12 @@ const academics = [
     level: "Undergraduate",
     class: "Computer Science and Engineering",
     institution: "Bangladesh University of Engineering & Technology",
+    degree: "B.Sc. in Computer Science and Engineering",
+    thesis: "Detection of Dengue Breeding Sites in Large-scale Landscapes Plagued by Unplanned Urban Development from Aerial Imagery and Remote Sensing with Deep Learning",
+    advisor: "Dr. Anindya Iqbal",
+    thesisPartner: "Sushmita Paul",
+    rank: "Merit Position 191 in BUET Admission Test",
+    coursework: ["Machine Learning", "Computer Vision", "Algorithms", "Data Structures", "Distributed Systems", "Computer Networks", "Operating Systems"],
     location: {
       place: "Dhaka, Bangladesh",
       link: "https://maps.app.goo.gl/16PysViis2NH6AE28"

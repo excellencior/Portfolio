@@ -13,7 +13,7 @@ import SidepaneOptions from "../consts/sidepane/options.jsx";
 
 const Sidepane = () => {
 	const location = useLocation();
-	const [drawerOpen, setDrawerOpen] = useState(false); // State for drawer open/close
+	const [drawerOpen, setDrawerOpen] = useState(false);
 
 	const toggleDrawer = (open) => (event) => {
 		if (event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
@@ -27,10 +27,9 @@ const Sidepane = () => {
 			role="presentation"
 			onClick={toggleDrawer(false)}
 			onKeyDown={toggleDrawer(false)}
-			sx={{ width: { xs: 300, md: 250 }, padding: { xs: '16px', md: '0px' } }}
+			sx={{ width: { xs: 280, md: 240 }, padding: { xs: "16px", md: "0px" } }}
 		>
-			{/* Drawer content goes here */}
-			<Typography variant="h6" component="div" gutterBottom sx={{ fontWeight: "light", fontSize: "0.8rem", mt: 2 }}>
+			<Typography variant="h6" component="div" gutterBottom sx={{ fontWeight: 200, fontSize: "0.8rem", mt: 2 }}>
 				"We know what we are,
 				<br /> but know not what we may be."
 				<br />
@@ -45,76 +44,95 @@ const Sidepane = () => {
 					fontWeight: 700,
 					mt: 2,
 					letterSpacing: "-1px",
-					lineHeight: 2,
+					lineHeight: 1.4,
 				}}
 			>
 				Apurbo Banik Turjo
 			</Typography>
 
-
 			{/* My Works List */}
-			<List>
-				<Typography variant="h6" component="div" mt={3} textTransform={"uppercase"} sx={{ borderBottom: '2px solid black' }}>
+			<List sx={{ mt: 2 }}>
+				<Typography variant="h6" component="div" mt={2} textTransform={"uppercase"} sx={{ borderBottom: "2px solid black", fontWeight: 500, fontSize: "1rem", pb: 0.5 }}>
 					My Works
 				</Typography>
-				{SidepaneOptions.myworks.map((text) => (
-					<ListItem key={text.title} disablePadding>
+				{SidepaneOptions.myworks.map((item) => (
+					<ListItem key={item.title} disablePadding>
 						<ListItemButton
-							sx={{ height: 30 }}
+							sx={{
+								height: 32,
+								my: 0.25,
+								"&.Mui-selected": {
+									backgroundColor: "#edf4fb",
+								},
+							}}
 							component={Link}
-							to={text.to}
-							selected={location.pathname === text.to}
+							to={item.to}
+							selected={location.pathname === item.to}
 						>
-							<ListItemText primary={text.title} />
+							<ListItemText primary={item.title} primaryTypographyProps={{ fontSize: "0.9rem" }} />
 						</ListItemButton>
 					</ListItem>
 				))}
 			</List>
 
 			{/* About Me List */}
-			<List>
-				<Typography variant="h6" component="div" mt={6} textTransform={"uppercase"} sx={{ borderBottom: '2px solid black' }}>
+			<List sx={{ mt: 1 }}>
+				<Typography variant="h6" component="div" mt={3} textTransform={"uppercase"} sx={{ borderBottom: "2px solid black", fontWeight: 500, fontSize: "1rem", pb: 0.5 }}>
 					About Me
 				</Typography>
-				{SidepaneOptions.about_me.map((text) => (
-					<ListItem key={text.title} disablePadding>
+				{SidepaneOptions.about_me.map((item) => (
+					<ListItem key={item.title} disablePadding>
 						<ListItemButton
-							sx={{ height: 30 }}
+							sx={{
+								height: 32,
+								my: 0.25,
+								"&.Mui-selected": {
+									backgroundColor: "#edf4fb",
+								},
+							}}
 							component={Link}
-							to={text.to}
-							selected={location.pathname === text.to}
+							to={item.to}
+							selected={location.pathname === item.to}
 						>
-							<ListItemText primary={text.title} />
+							<ListItemText primary={item.title} primaryTypographyProps={{ fontSize: "0.9rem" }} />
 						</ListItemButton>
 					</ListItem>
 				))}
 			</List>
 
-			<Typography variant="h6" component="div" mt={6} textTransform={"uppercase"}>
+			<Typography variant="h6" component="div" mt={4} textTransform={"uppercase"} sx={{ fontWeight: 500, fontSize: "1rem" }}>
 				Contact
 			</Typography>
-			<ButtonGroup
-				aria-label="Vertical button group">
+			<ButtonGroup aria-label="contact button group" sx={{ mt: 1 }}>
 				{SidepaneOptions.contact.map((item, index) => (
-					<Button component={Link} key={index} startIcon={item.icon} to={item.link} />
+					<Button
+						key={index}
+						component={item.isExternal ? "a" : Link}
+						to={!item.isExternal ? item.link : undefined}
+						href={item.isExternal ? item.link : undefined}
+						target={item.isExternal ? "_blank" : undefined}
+						rel={item.isExternal ? "noopener noreferrer" : undefined}
+						startIcon={item.icon}
+						sx={{ border: "1px solid #ccc", minWidth: 40, px: 1 }}
+					/>
 				))}
 			</ButtonGroup>
 		</Box>
 	);
 
 	return (
-		<Box sx={{ display: 'flex' }}>
-			{/* Button to open the drawer for mobile */}
+		<Box sx={{ display: "flex" }}>
 			<IconButton
 				edge="start"
 				color="inherit"
 				aria-label="menu"
 				onClick={toggleDrawer(true)}
 				sx={{
-					display: { xs: "block", md: "none" }, // Show only on mobile
+					display: { xs: "block", md: "none" },
 					position: "absolute",
 					top: 16,
 					left: 10,
+					zIndex: 1100,
 				}}
 			>
 				<MenuIcon />
@@ -124,7 +142,7 @@ const Sidepane = () => {
 				{sidepaneContent}
 			</Drawer>
 
-			<Box sx={{ display: { xs: "none", md: "block" }, width: 250 }}>
+			<Box sx={{ display: { xs: "none", md: "block" }, width: 240, position: "sticky", top: 20 }}>
 				{sidepaneContent}
 			</Box>
 		</Box>

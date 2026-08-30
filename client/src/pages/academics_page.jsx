@@ -1,60 +1,59 @@
-import { Grid, Typography, Box, Chip, Avatar } from "@mui/material";
-import HistoryEduIcon from "@mui/icons-material/HistoryEdu";
-import AcademicsDetails from "../consts/academics/academics";
-import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
+import academics from "../consts/academics/academics";
 
 const Academics = () => {
 	return (
-		<Grid container spacing={4} className="animate-slide-up">
-			{AcademicsDetails.map((academic) => (
-				<Grid
-					size={12}
-					key={academic.id}
-				>
-					<Grid container spacing={2} alignItems="flex-start">
-						{/* Icon */}
-						<Grid size={{ xs: 12, sm: 1 }}>
-							<Box sx={{ display: "flex", justifyContent: { xs: "flex-start", sm: "center" } }}>
-								<HistoryEduIcon fontSize="large" />
-							</Box>
-						</Grid>
+		<div>
+			<h2>Academic History</h2>
 
-						{/* Info */}
-						<Grid size={{ xs: 12, sm: 11 }}>
-							<Grid container spacing={2}>
-								<Grid size={{ xs: 12, md: 3 }}>
-									<Typography variant="h6">{academic.year}</Typography>
-									<Typography variant="body1">{academic.level}</Typography>
-								</Grid>
-
-								<Grid size={{ xs: 12, md: 9 }}>
-									<Typography variant="h6">{academic.institution}</Typography>
-									<Typography variant="body1" fontWeight={500}>
-										{academic.class}
-									</Typography>
-
-									<Chip
-										avatar={
-											<Avatar sx={{ bgcolor: "transparent" }}>
-												<ArrowOutwardIcon fontSize="small" />
-											</Avatar>
-										}
-										label={academic.location.place}
-										variant="outlined"
-										size="small"
-										component="a"
-										href={academic.location.link}
-										target="_blank"
-										clickable
-										sx={{ mt: 1 }}
-									/>
-								</Grid>
-							</Grid>
-						</Grid>
-					</Grid>
-				</Grid>
-			))}
-		</Grid>
+			<table className="bordered" style={{ width: "100%" }}>
+				<thead>
+					<tr>
+						<th style={{ width: "140px" }}>Period</th>
+						<th>Degree / Institution & Details</th>
+					</tr>
+				</thead>
+				<tbody>
+					{academics.map((item) => (
+						<tr key={item.id}>
+							<td className="table-period">{item.year}</td>
+							<td>
+								<div style={{ fontWeight: 600, fontSize: "1rem" }}>
+									{item.institution}
+								</div>
+								<div style={{ color: "var(--primary-color)", fontWeight: 500, margin: "0.2rem 0" }}>
+									{item.degree || item.class} ({item.level})
+								</div>
+								{item.thesis && (
+									<div style={{ fontSize: "0.9rem", color: "#444", marginTop: "0.3rem" }}>
+										<b>Thesis:</b> <em>"{item.thesis}"</em>
+									</div>
+								)}
+								{item.advisor && (
+									<div style={{ fontSize: "0.85rem", color: "#555", marginTop: "0.2rem" }}>
+										<b>Advisor:</b> {item.advisor} {item.thesisPartner && `| Co-Researcher: ${item.thesisPartner}`}
+									</div>
+								)}
+								{item.rank && (
+									<div style={{ fontSize: "0.85rem", color: "#666", marginTop: "0.2rem" }}>
+										<b>Honors:</b> {item.rank}
+									</div>
+								)}
+								{item.coursework && (
+									<div style={{ fontSize: "0.85rem", color: "#666", marginTop: "0.2rem" }}>
+										<b>Key Coursework:</b> {item.coursework.join(", ")}
+									</div>
+								)}
+								{item.location && (
+									<div style={{ fontSize: "0.82rem", color: "#777", marginTop: "0.2rem" }}>
+										📍 <a href={item.location.link} target="_blank" rel="noopener noreferrer">{item.location.place}</a>
+									</div>
+								)}
+							</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
 	);
 };
 

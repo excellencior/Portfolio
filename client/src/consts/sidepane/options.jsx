@@ -1,61 +1,57 @@
-import FacebookIcon from "@mui/icons-material/Facebook";
 import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-// myworks: Projects, Academics, Photography (with icons, to)
+// myworks: Projects, Research, Academics, Photography
 const myworks = [
 	{
 		title: "Projects",
-		icon: "",
 		to: "/projects",
 	},
 	{
+		title: "Research",
+		to: "/research",
+	},
+	{
 		title: "Academics",
-		icon: "",
 		to: "/academics",
 	},
 	{
 		title: "Photography",
-		icon: "",
 		to: "/photography",
 	},
 ];
 
-// Bio, CV: title, icon, to
+// about_me: Bio, Timeline
 const about_me = [
 	{
 		title: "Bio",
-		icon: "",
 		to: "/",
 	},
 	{
-		title: "Resume",
-		icon: "",
-		to: "/cv",
-	},
-	{
-		title: "Updates",
-		icon: "",
+		title: "Timeline",
 		to: "/updates",
 	},
 ];
 
-// Contact : Facebook, Gmail, Github (with icons and links)
+// Contact : Mail, GitHub, LinkedIn
 const contact = [
 	{
 		title: "Mail",
-		icon: <EmailIcon sx={{ color: "darkgreen"}} />,
+		icon: <EmailIcon sx={{ color: "darkgreen" }} />,
 		link: "/mail",
 	},
 	{
-		title: "FB",
-		icon: <FacebookIcon sx={{ color: "blue"}} />,
-		link: "https://www.facebook.com/apurbobanik.turjo/",
+		title: "Github",
+		icon: <GitHubIcon sx={{ color: "black" }} />,
+		link: "https://github.com/excellencior",
+		isExternal: true,
 	},
 	{
-		title: "Github",
-		icon: <GitHubIcon sx={{ color: "black"}} />,
-		link: "https://github.com/excellencior",
+		title: "LinkedIn",
+		icon: <LinkedInIcon sx={{ color: "#0A66C2" }} />,
+		link: "https://www.linkedin.com/in/abturjo/",
+		isExternal: true,
 	},
 ];
 

@@ -1,59 +1,100 @@
-import React, { useState } from "react";
-import {
-	Card,
-	CardActionArea,
-	CardContent,
-	CardMedia,
-	Typography,
-	Backdrop,
-} from "@mui/material";
-import Grow from "@mui/material/Grow";
+import { useState } from "react";
+import { Dialog, IconButton, Typography, Box } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+
+const formatPhotoTitle = (rawTitle) => {
+	if (!rawTitle) return "Photo";
+	return rawTitle
+		.replace(/_/g, " ")
+		.replace(/-/g, " ")
+		.replace(/\.[^/.]+$/, "")
+		.replace(/\b\w/g, (char) => char.toUpperCase());
+};
 
 const PhotoCard = ({ image }) => {
 	const [open, setOpen] = useState(false);
+	const cleanTitle = formatPhotoTitle(image.title);
 
 	return (
 		<>
-			<Card sx={{ maxWidth: 345 }}>
-				<CardActionArea onClick={() => setOpen(true)}>
-					<CardMedia
-						component="img"
-						height="200px"
-						width="auto"
-						image={image.url}
-						alt={image.title}
-					/>
-					<CardContent>
-						<Typography variant="h5" component="div">
-							{image.title}
-						</Typography>
-						<Typography variant="body2">Click to view full size</Typography>
-					</CardContent>
-				</CardActionArea>
-			</Card>
+			<div className="photo-card-item" onClick={() => setOpen(true)}>
+				<div className="photo-img-wrapper">
+					<img src={image.url} alt={cleanTitle} loading="lazy" />
+				</div>
+				<div className="photo-info">
+					<p className="photo-title">{cleanTitle}</p>
+					<p className="photo-sub">Click to enlarge</p>
+				</div>
+			</div>
 
-			<Backdrop
-				sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+			{/* Lightbox Modal */}
+			<Dialog
 				open={open}
-				onClick={() => setOpen(false)}
+				onClose={() => setOpen(false)}
+				maxWidth="lg"
+				PaperProps={{
+					sx: {
+						backgroundColor: "transparent",
+						boxShadow: "none",
+						overflow: "hidden",
+						margin: 1,
+					},
+				}}
 			>
-				<Grow in={open}>
-					<img
+				<Box
+					sx={{
+						position: "relative",
+						display: "flex",
+						flexDirection: "column",
+						alignItems: "center",
+						backgroundColor: "#ffffff",
+						borderRadius: 2,
+						p: { xs: 1.5, sm: 2 },
+						boxShadow: "0 20px 50px rgba(0,0,0,0.3)",
+					}}
+				>
+					<IconButton
+						onClick={() => setOpen(false)}
+						sx={{
+							position: "absolute",
+							top: 8,
+							right: 8,
+							backgroundColor: "rgba(0,0,0,0.6)",
+							color: "#ffffff",
+							"&:hover": { backgroundColor: "rgba(0,0,0,0.8)" },
+							zIndex: 10,
+						}}
+						size="small"
+					>
+						<CloseIcon fontSize="small" />
+					</IconButton>
+
+					<Box
+						component="img"
 						src={image.url}
-						alt={image.title}
-						style={{
-							width: "auto",
-							maxWidth: "90vw", // Adjust based on your preference
-							maxHeight: "80vh", // Adjust based on your preference
+						alt={cleanTitle}
+						sx={{
+							maxWidth: "90vw",
+							maxHeight: "80vh",
+							objectFit: "contain",
+							borderRadius: 1,
 							display: "block",
-							margin: "0 auto",
-							borderRadius: "5px",
-							border: "solid 2px",
-							borderColor: "white",
 						}}
 					/>
-				</Grow>
-			</Backdrop>
+
+					<Typography
+						variant="subtitle1"
+						sx={{
+							mt: 1.5,
+							fontWeight: 600,
+							color: "#222",
+							textAlign: "center",
+						}}
+					>
+						{cleanTitle}
+					</Typography>
+				</Box>
+			</Dialog>
 		</>
 	);
 };

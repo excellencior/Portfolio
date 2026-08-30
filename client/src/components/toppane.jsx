@@ -6,7 +6,7 @@ const TopPane = ({ title }) => {
 			variant="h4"
 			component="div"
 			gutterBottom
-			sx={{ fontWeight: "regular", mt: 3, mb: 5 }}
+			sx={{ fontWeight: 300, mt: 3, mb: 5 }}
 		>
 			{title}
 		</Typography>
