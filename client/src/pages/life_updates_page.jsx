@@ -1,6 +1,19 @@
-import life_updates from "../consts/bio/life_updates";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const LifeUpdate = () => {
+	const [lifeUpdates, setLifeUpdates] = useState([]);
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		axios.get("/api/life-updates")
+			.then((res) => setLifeUpdates(res.data))
+			.catch((err) => console.error("Failed to fetch life updates:", err))
+			.finally(() => setLoading(false));
+	}, []);
+
+	if (loading) return <div><h2>My Updates</h2><div className="spinner-container"><div className="spinner" /></div></div>;
+
 	return (
 		<div>
 			<h2>My Updates</h2>
@@ -16,10 +29,10 @@ const LifeUpdate = () => {
 					</tr>
 				</thead>
 				<tbody>
-					{life_updates.map((item) => (
+					{lifeUpdates.map((item) => (
 						<tr key={item.id}>
 							<td className="table-period">
-								{item.specificDate || item.date}
+								{item.specific_date || item.date}
 							</td>
 							<td>
 								<div style={{ fontWeight: 600, color: "var(--text-color)" }}>

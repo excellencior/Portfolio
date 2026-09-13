@@ -15,6 +15,14 @@ import Photography from "./pages/photography_page.jsx";
 import LifeUpdate from "./pages/life_updates_page.jsx";
 import Mail from "./pages/mail_page.jsx";
 
+import AdminLogin from "./pages/admin/AdminLogin.jsx";
+import AdminLayout from "./pages/admin/AdminLayout.jsx";
+import AdminBio from "./pages/admin/AdminBio.jsx";
+import AdminAcademics from "./pages/admin/AdminAcademics.jsx";
+import AdminLifeUpdates from "./pages/admin/AdminLifeUpdates.jsx";
+import AdminProjects from "./pages/admin/AdminProjects.jsx";
+import AdminPublications from "./pages/admin/AdminPublications.jsx";
+
 const ScrollToTop = () => {
 	const { pathname } = useLocation();
 	useEffect(() => {
@@ -25,11 +33,32 @@ const ScrollToTop = () => {
 
 const App = () => {
 	const location = useLocation();
-	axios.defaults.baseURL = import.meta.env.VITE_API_URL || "";
+	axios.defaults.baseURL = import.meta.env.VITE_API_URL;
 
 	const scrollToTop = () => {
 		window.scrollTo({ top: 0, behavior: "smooth" });
 	};
+
+	const isAdminRoute = location.pathname.startsWith("/admin");
+
+	if (isAdminRoute) {
+		return (
+			<ThemeProvider theme={mytheme}>
+				<ScrollToTop />
+				<Routes>
+					<Route path="/admin/login" element={<AdminLogin />} />
+					<Route path="/admin" element={<AdminLayout />}>
+						<Route path="bio" element={<AdminBio />} />
+						<Route path="academics" element={<AdminAcademics />} />
+						<Route path="updates" element={<AdminLifeUpdates />} />
+						<Route path="projects" element={<AdminProjects />} />
+						<Route path="publications" element={<AdminPublications />} />
+						<Route index element={<Navigate to="publications" replace />} />
+					</Route>
+				</Routes>
+			</ThemeProvider>
+		);
+	}
 
 	return (
 		<ThemeProvider theme={mytheme}>

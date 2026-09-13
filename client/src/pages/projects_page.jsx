@@ -1,6 +1,19 @@
-import projects from "../consts/projects/projects";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Projects = () => {
+	const [projects, setProjects] = useState([]);
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		axios.get("/api/projects")
+			.then((res) => setProjects(res.data))
+			.catch((err) => console.error("Failed to fetch projects:", err))
+			.finally(() => setLoading(false));
+	}, []);
+
+	if (loading) return <div><h2>Software Projects</h2><div className="spinner-container"><div className="spinner" /></div></div>;
+
 	return (
 		<section>
 			<h2>Software Projects</h2>
@@ -21,8 +34,8 @@ const Projects = () => {
 						</p>
 
 						<nav className="pub-links">
-							{project.repoLink ? (
-								<a href={project.repoLink} target="_blank" rel="noopener noreferrer">
+							{project.repo_link ? (
+								<a href={project.repo_link} target="_blank" rel="noopener noreferrer">
 									[Source Code / GitHub]
 								</a>
 							) : (
@@ -30,8 +43,8 @@ const Projects = () => {
 									[Repo: Institutional / Under Review]
 								</span>
 							)}
-							{project.deployedAt && (
-								<a href={`https://${project.deployedAt.replace(/^https?:\/\//, "")}`} target="_blank" rel="noopener noreferrer">
+							{project.deployed_at && (
+								<a href={`https://${project.deployed_at.replace(/^https?:\/\//, "")}`} target="_blank" rel="noopener noreferrer">
 									[Live Demo / Website]
 								</a>
 							)}

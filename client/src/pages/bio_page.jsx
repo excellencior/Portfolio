@@ -1,9 +1,26 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Mydescription from "../consts/bio/mydescription";
-import life_updates from "../consts/bio/life_updates";
+import axios from "axios";
 
 const Bio = () => {
-	const recentUpdates = life_updates.slice(0, 5);
+	const [bio, setBio] = useState(null);
+	const [recentUpdates, setRecentUpdates] = useState([]);
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		Promise.all([
+			axios.get("/api/bio"),
+			axios.get("/api/life-updates"),
+		])
+			.then(([bioRes, updatesRes]) => {
+				setBio(bioRes.data);
+				setRecentUpdates(updatesRes.data.slice(0, 5));
+			})
+			.catch((err) => console.error("Failed to fetch bio data:", err))
+			.finally(() => setLoading(false));
+	}, []);
+
+	if (loading || !bio) return <div><h2>About Me</h2><div className="spinner-container"><div className="spinner" /></div></div>;
 
 	return (
 		<div>
@@ -11,21 +28,21 @@ const Bio = () => {
 
 			<img
 				className="floatLeft"
-				src={Mydescription.profilephoto}
-				alt={Mydescription.name}
+				src={bio.profile_photo}
+				alt={bio.name}
 				width="220"
 				style={{ maxWidth: "220px", height: "auto" }}
 			/>
 
 			<div
-				dangerouslySetInnerHTML={{ __html: Mydescription.description }}
+				dangerouslySetInnerHTML={{ __html: bio.description }}
 				style={{ lineHeight: 1.7, textAlign: "justify" }}
 			/>
 
 			<div style={{ clear: "both", paddingTop: "1rem" }}>
 				<h3>Research Interests</h3>
 				<ul style={{ margin: "0.5rem 0 1.5rem", paddingLeft: "1.5rem" }}>
-					{Mydescription.researchInterests.map((interest) => (
+					{bio.research_interests.map((interest) => (
 						<li key={interest} style={{ marginBottom: "0.35rem" }}>
 							<b>{interest}</b>
 						</li>

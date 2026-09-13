@@ -1,0 +1,105 @@
+-- Supabase Migration: Portfolio Tables
+-- Run this in the Supabase SQL Editor
+
+CREATE TABLE IF NOT EXISTS publications (
+  id TEXT PRIMARY KEY,
+  title TEXT NOT NULL,
+  authors JSONB NOT NULL,
+  venue TEXT NOT NULL,
+  venue_details TEXT,
+  year TEXT NOT NULL,
+  status TEXT,
+  status_class TEXT,
+  selected BOOLEAN DEFAULT false,
+  category TEXT,
+  image_url TEXT,
+  abstract TEXT,
+  highlights TEXT[],
+  tags TEXT[],
+  link_project TEXT,
+  link_code TEXT,
+  link_paper TEXT,
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  created_at TIMESTAMPTZ DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS projects (
+  id INTEGER PRIMARY KEY,
+  title TEXT NOT NULL,
+  category TEXT,
+  date TEXT,
+  subtitle TEXT,
+  description TEXT,
+  image_url TEXT,
+  repo_link TEXT,
+  deployed_at TEXT,
+  tags TEXT[],
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  created_at TIMESTAMPTZ DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS life_updates (
+  id INTEGER PRIMARY KEY,
+  date TEXT NOT NULL,
+  specific_date TEXT,
+  title TEXT NOT NULL,
+  description TEXT,
+  image_url TEXT,
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  created_at TIMESTAMPTZ DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS academics (
+  id INTEGER PRIMARY KEY,
+  year TEXT NOT NULL,
+  level TEXT NOT NULL,
+  class TEXT,
+  institution TEXT NOT NULL,
+  degree TEXT,
+  thesis TEXT,
+  advisor TEXT,
+  thesis_partner TEXT,
+  rank TEXT,
+  coursework TEXT[],
+  location_place TEXT,
+  location_link TEXT,
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  created_at TIMESTAMPTZ DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS bio (
+  id INTEGER PRIMARY KEY DEFAULT 1,
+  name TEXT NOT NULL,
+  profile_photo TEXT,
+  role_title TEXT,
+  education TEXT,
+  research_interests TEXT[],
+  description TEXT,
+  CHECK (id = 1)
+);
+
+-- Enable Row Level Security but allow public read
+ALTER TABLE publications ENABLE ROW LEVEL SECURITY;
+ALTER TABLE projects ENABLE ROW LEVEL SECURITY;
+ALTER TABLE life_updates ENABLE ROW LEVEL SECURITY;
+ALTER TABLE academics ENABLE ROW LEVEL SECURITY;
+ALTER TABLE bio ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Allow public read on publications" ON publications FOR SELECT USING (true);
+CREATE POLICY "Allow public read on projects" ON projects FOR SELECT USING (true);
+CREATE POLICY "Allow public read on life_updates" ON life_updates FOR SELECT USING (true);
+CREATE POLICY "Allow public read on academics" ON academics FOR SELECT USING (true);
+CREATE POLICY "Allow public read on bio" ON bio FOR SELECT USING (true);
+
+-- Grant table-level permissions
+GRANT ALL ON publications TO service_role;
+GRANT ALL ON projects TO service_role;
+GRANT ALL ON life_updates TO service_role;
+GRANT ALL ON academics TO service_role;
+GRANT ALL ON bio TO service_role;
+
+GRANT SELECT ON publications TO anon;
+GRANT SELECT ON projects TO anon;
+GRANT SELECT ON life_updates TO anon;
+GRANT SELECT ON academics TO anon;
+GRANT SELECT ON bio TO anon;

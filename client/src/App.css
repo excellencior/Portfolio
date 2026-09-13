@@ -2,6 +2,25 @@
    Graham Neubig (phontron.com) Academic Style (White Theme) - Sticky Animated Navbar
    ========================================================================== */
 
+/* Loading Spinner */
+.spinner-container {
+	display: flex;
+	justify-content: center;
+	padding: 3rem 0;
+}
+
+.spinner {
+	width: 28px;
+	height: 28px;
+	border: 3px solid var(--border-color);
+	border-top-color: var(--primary-color);
+	border-radius: 50%;
+	animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+	to { transform: rotate(360deg); }
+}
 :root {
 	--primary-color: #8b0000;
 	--primary-hover: #a52a2a;
@@ -212,6 +231,8 @@ body {
 	padding: 0;
 	overflow: hidden;
 	white-space: nowrap;
+	-webkit-tap-highlight-color: transparent;
+	outline: none;
 	transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1),
 	            width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
 	            height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
@@ -327,6 +348,8 @@ body {
 	transition: color 0.15s ease, transform 0.15s ease;
 	opacity: 0;
 	transform: translateY(-10px);
+	-webkit-tap-highlight-color: transparent;
+	outline: none;
 }
 
 .langchain-fullscreen-overlay.open .langchain-nav-link {
@@ -524,7 +547,7 @@ table.bordered tr:nth-child(even) td {
 	margin-bottom: 0.5rem;
 }
 
-.pub-status-badge {
+.status-pill {
 	display: inline-block;
 	font-size: 0.75rem;
 	font-weight: 600;
@@ -536,22 +559,22 @@ table.bordered tr:nth-child(even) td {
 	vertical-align: middle;
 }
 
-.pub-status-under_review {
-	background-color: #fff8e1;
-	color: #b78103;
-	border: 1px solid #ffe082;
+.status-pill-compact {
+	font-size: 0.68rem;
+	padding: 0.08rem 0.4rem;
 }
 
-.pub-status-in_progress {
-	background-color: #e8f4fd;
-	color: #0277bd;
-	border: 1px solid #b3e5fc;
+.status-pill.under-review,
+.status-pill.in-progress {
+	background-color: #f0f0f0;
+	color: #333;
+	border: 1px solid #ccc;
 }
 
-.pub-status-system {
-	background-color: #f1f8e9;
-	color: #33691e;
-	border: 1px solid #c5e1a5;
+.status-pill.completed {
+	background-color: var(--primary-color);
+	color: #fff;
+	border: 1px solid var(--primary-color);
 }
 
 /* Projects List */
@@ -899,21 +922,23 @@ footer {
 	}
 
 	#headline .headline-links {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
-		gap: 0.4rem;
+		display: block;
 	}
 
 	#headline .headline-links-row {
-		display: flex;
-		align-items: center;
-		justify-content: flex-end;
+		display: grid;
+		grid-template-columns: auto auto;
+		gap: 0.2rem 1rem;
+		justify-content: end;
 	}
 
 	#headline .headline-links a,
 	#headline .headline-links button {
 		justify-content: flex-end;
+	}
+
+	#headline .link-dot {
+		display: none !important;
 	}
 
 	#headline .row-separator {

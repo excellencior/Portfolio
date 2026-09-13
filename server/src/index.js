@@ -6,9 +6,31 @@ import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 dotenv.config();
 
+// Validate required environment variables (no fallbacks)
+const REQUIRED_ENV = [
+	"CLOUDINARY_API_KEY",
+	"CLOUDINARY_API_SECRET",
+	"CLOUDINARY_CLOUD_NAME",
+	"EMAIL",
+	"PASSWORD",
+	"SUPABASE_URL",
+	"SUPABASE_SECRET_KEY",
+	"GOOGLE_CLIENT_ID"
+];
+
+for (const key of REQUIRED_ENV) {
+	if (!process.env[key]) {
+		console.error(`FATAL: Missing required environment variable: ${key}`);
+		process.exit(1);
+	}
+}
+
 import mailRouter from "../api/server.js";
 import homeAPI from "../api/homeAPI.js";
 import photoAPI from "../api/photoAPI.js";
+import dataAPI from "../api/dataAPI.js";
+import authAPI from "../api/authAPI.js";
+import adminAPI from "../api/adminAPI.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -52,13 +74,16 @@ app.use(express.static(distPath, staticOptions));
 app.use("/", homeAPI);
 app.use("/mail", mailRouter);
 app.use("/photography", photoAPI);
+app.use("/api", dataAPI);
+app.use("/auth", authAPI);
+app.use("/admin/api", adminAPI);
 
 // SPA catch-all: serve index.html for any unmatched route so React Router handles it
 app.get("*", (req, res) => {
 	res.sendFile(path.join(distPath, "index.html"));
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
 	console.log(`Server is running on port ${PORT} with compression & max caching enabled`);
