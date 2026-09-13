@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Bio = () => {
@@ -14,7 +13,7 @@ const Bio = () => {
 		])
 			.then(([bioRes, updatesRes]) => {
 				setBio(bioRes.data);
-				setRecentUpdates(updatesRes.data.slice(0, 5));
+				setRecentUpdates(updatesRes.data.slice(0, 20));
 			})
 			.catch((err) => console.error("Failed to fetch bio data:", err))
 			.finally(() => setLoading(false));
@@ -57,10 +56,6 @@ const Bio = () => {
 						</li>
 					))}
 				</ul>
-				<p>
-					<Link to="/updates">» View all updates & timeline</Link>
-				</p>
-
 				<h3>Profiles & Correspondence</h3>
 				<ul style={{ margin: "0.5rem 0 1rem", paddingLeft: "1.5rem" }}>
 					<li>

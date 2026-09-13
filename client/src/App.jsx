@@ -12,7 +12,6 @@ import Research from "./pages/research_page.jsx";
 import Projects from "./pages/projects_page.jsx";
 import Academics from "./pages/academics_page.jsx";
 import Photography from "./pages/photography_page.jsx";
-import LifeUpdate from "./pages/life_updates_page.jsx";
 import Mail from "./pages/mail_page.jsx";
 
 import AdminLogin from "./pages/admin/AdminLogin.jsx";
@@ -76,7 +75,6 @@ const App = () => {
 								<Route path="/research" element={<Research />} />
 								<Route path="/projects" element={<Projects />} />
 								<Route path="/academics" element={<Academics />} />
-								<Route path="/updates" element={<LifeUpdate />} />
 								<Route path="/photography" element={<Photography />} />
 								<Route path="/mail" element={<Mail />} />
 								<Route path="*" element={<Navigate to="/" replace />} />

@@ -22,15 +22,11 @@ const myworks = [
 	},
 ];
 
-// about_me: Bio, Timeline
+// about_me: Bio
 const about_me = [
 	{
 		title: "Bio",
 		to: "/",
-	},
-	{
-		title: "Timeline",
-		to: "/updates",
 	},
 ];
 

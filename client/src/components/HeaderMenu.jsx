@@ -8,7 +8,6 @@ const NAV_ITEMS = [
 	{ title: "Research", to: "/research" },
 	{ title: "Projects", to: "/projects" },
 	{ title: "Academics", to: "/academics" },
-	{ title: "Timeline", to: "/updates" },
 	{ title: "Photography", to: "/photography" },
 	{ title: "Contact", to: "/mail" },
 ];
