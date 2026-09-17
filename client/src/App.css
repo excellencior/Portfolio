@@ -592,6 +592,24 @@ table.bordered tr:nth-child(even) td {
 	padding-bottom: 1.5rem;
 	border-bottom: 1px solid var(--border-color);
 	counter-increment: project-counter;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(180px, 28%);
+	gap: 1.25rem;
+	align-items: start;
+}
+
+.project-item:not(:has(.project-image)) {
+	grid-template-columns: 1fr;
+}
+
+.project-image {
+	display: block;
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: contain;
+	background: var(--card-bg);
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius);
 }
 
 .project-item:last-child {
@@ -604,6 +622,13 @@ table.bordered tr:nth-child(even) td {
 	font-weight: 600;
 	color: var(--text-color);
 	margin: 0;
+}
+
+.project-subtitle {
+	margin: 0.15rem 0 0;
+	font-size: 0.84rem;
+	font-style: italic;
+	color: var(--text-light);
 }
 
 .project-description {
@@ -1140,6 +1165,15 @@ footer {
 	/* Projects: mobile adjustments */
 	.projects-list {
 		gap: 1rem;
+	}
+
+	.project-item {
+		grid-template-columns: 1fr;
+		gap: 0.8rem;
+	}
+
+	.project-image {
+		width: min(100%, 360px);
 	}
 
 	.project-description {

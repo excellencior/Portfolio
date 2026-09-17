@@ -21,34 +21,32 @@ const Projects = () => {
 			<ol className="projects-list">
 				{projects.map((project) => (
 					<li key={project.id} className="project-item">
-						<h3 className="project-title">
-							{project.title}
-						</h3>
-
-						<p className="project-description">
-							{project.description}
-						</p>
-
-						<p className="project-tech">
-							<b>Tech Stack:</b> {project.tags?.join(", ")} {project.date && `(${project.date})`}
-						</p>
-
-						<nav className="pub-links">
-							{project.repo_link ? (
-								<a href={project.repo_link} target="_blank" rel="noopener noreferrer">
-									[Source Code / GitHub]
-								</a>
-							) : (
-								<span style={{ color: "#777", fontSize: "0.85rem" }}>
-									[Repo: Institutional / Under Review]
-								</span>
-							)}
-							{project.deployed_at && (
-								<a href={`https://${project.deployed_at.replace(/^https?:\/\//, "")}`} target="_blank" rel="noopener noreferrer">
-									[Live Demo / Website]
-								</a>
-							)}
-						</nav>
+						<div className="project-copy">
+							<h3 className="project-title">{project.title}</h3>
+							{project.subtitle && <p className="project-subtitle">{project.subtitle}</p>}
+							<p className="project-description">{project.description}</p>
+							<p className="project-tech">
+								<b>Tech Stack:</b> {project.tags?.join(", ")} {project.date && `(${project.date})`}
+							</p>
+							<nav className="pub-links">
+								{project.repo_link ? (
+									<a href={project.repo_link} target="_blank" rel="noopener noreferrer">[Source Code / GitHub]</a>
+								) : (
+									<span style={{ color: "#777", fontSize: "0.85rem" }}>[Repo: Institutional / Under Review]</span>
+								)}
+								{project.deployed_at && (
+									<a href={`https://${project.deployed_at.replace(/^https?:\/\//, "")}`} target="_blank" rel="noopener noreferrer">[Live Demo / Website]</a>
+								)}
+							</nav>
+						</div>
+						{project.image_url && (
+							<img
+								className="project-image"
+								src={project.image_url}
+								alt={`${project.title} preview`}
+								loading="lazy"
+							/>
+						)}
 					</li>
 				))}
 			</ol>

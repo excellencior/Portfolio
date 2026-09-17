@@ -50,6 +50,7 @@ const AdminProjects = () => {
   const [itemToDelete, setItemToDelete] = useState(null);
   const [sortConfig, setSortConfig] = useState({ key: "sort_order", direction: "asc" });
   const [loading, setLoading] = useState(true);
+  const [saveError, setSaveError] = useState("");
 
   useEffect(() => {
     fetchItems();
@@ -86,13 +87,14 @@ const AdminProjects = () => {
   const handleSave = async (e) => {
     e.preventDefault();
     setIsSaving(true);
+    setSaveError("");
     const method = editingItem.id ? "PUT" : "POST";
     const url = editingItem.id
       ? `${import.meta.env.VITE_API_URL}/admin/api/projects/${editingItem.id}`
       : `${import.meta.env.VITE_API_URL}/admin/api/projects`;
 
     try {
-      await fetch(url, {
+      const res = await fetch(url, {
         method,
         headers: {
           "Content-Type": "application/json",
@@ -100,10 +102,17 @@ const AdminProjects = () => {
         },
         body: JSON.stringify(editingItem)
       });
+
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error || `Unable to save project (${res.status})`);
+      }
+
       setEditingItem(null);
-      fetchItems();
+      await fetchItems();
     } catch (err) {
       console.error(err);
+      setSaveError(err.message);
     } finally {
       setIsSaving(false);
     }
@@ -155,7 +164,7 @@ const AdminProjects = () => {
     <div className="admin-page">
       <div className="admin-page-header">
         <h2>Projects</h2>
-        <button className="admin-btn-add" onClick={() => setEditingItem({ tags: [], category: "AI & Machine Learning" })}>+ Add New</button>
+        <button className="admin-btn-add" onClick={() => { setSaveError(""); setEditingItem({ tags: [], category: "AI & Machine Learning" }); }}>+ Add New</button>
       </div>
       {loading ? (
         <div className="spinner-container"><div className="spinner" /></div>
@@ -210,6 +219,8 @@ const AdminProjects = () => {
           <div className="modal-content">
             <h3>{editingItem.id ? "Edit Project" : "Add Project"}</h3>
             <form onSubmit={handleSave} className="admin-form">
+
+              {saveError && <div className="error-message" role="alert">{saveError}</div>}
 
               <div className="form-section">
                 <h4 className="form-section-title">Basic Info</h4>
